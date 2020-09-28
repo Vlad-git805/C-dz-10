@@ -15,7 +15,13 @@ namespace ConsoleApp1
 
         public SuperCounter()
         {
-            algoritm = Program.Simple_numbers;
+            algoritm = delegate (int limit)
+            {
+                for (int i = 0; i < limit; i++)
+                {
+                    Console.Write(i + "  ");
+                }
+            };
         }
 
         public SuperCounter(CountDelegate algo)
@@ -103,7 +109,7 @@ namespace ConsoleApp1
             countDelegate += Fibanachi;
             countDelegate += Step_2;
 
-            //SuperCounter superCounter = new SuperCounter(0);
+            //SuperCounter superCounter = new SuperCounter();
             //superCounter.Calculate(150);
 
             SuperCounter superCounter = new SuperCounter(countDelegate);
